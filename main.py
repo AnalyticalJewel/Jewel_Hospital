@@ -9,7 +9,7 @@ app = FastAPI(title="Jewel Hospital")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-# Simple in-memory storage
+# In-memory storage
 appointments = []
 
 
@@ -46,4 +46,4 @@ async def book_appointment(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
