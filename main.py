@@ -2,12 +2,16 @@ from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from datetime import datetime
+import os
 
 app = FastAPI(title="Jewel Hospital")
 
+# Print current directory for debugging
+print("Current directory:", os.getcwd())
+print("Templates folder exists:", os.path.exists("templates"))
+
 templates = Jinja2Templates(directory="templates")
 
-# In-memory storage for appointments
 appointments = []
 
 
@@ -38,10 +42,4 @@ async def book_appointment(
         "booked_at": datetime.now().strftime("%d %b, %I:%M %p")
     }
     appointments.append(appointment)
-    
     return RedirectResponse(url="/?success=1", status_code=303)
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
