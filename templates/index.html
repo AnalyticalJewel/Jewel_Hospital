@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewel Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Top Bar -->
+  <div class="bg-blue-700 text-white py-3 text-center text-sm">
+    24/7 Emergency Services 
+  </div>
+
+  <!-- Hero -->
+  <section class="bg-blue-600 text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-5xl font-bold mb-4">Jewel Hospital</h1>
+      <p class="text-2xl">Caring for Your Health with Compassion</p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fa-solid fa-heart-pulse text-5xl text-red-500 mb-4"></i>
+          <h3 class="font-bold text-xl">Cardiology</h3>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fa-solid fa-user-doctor text-5xl text-blue-500 mb-4"></i>
+          <h3 class="font-bold text-xl">General Medicine</h3>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <i class="fa-solid fa-baby text-5xl text-pink-500 mb-4"></i>
+          <h3 class="font-bold text-xl">Pediatrics</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Form -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-10">Book an Appointment</h2>
+      
+      {% if success %}
+      <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-2xl mb-8 text-center">
+        ✅ Appointment Booked Successfully!
+      </div>
+      {% endif %}
+
+      <form method="post" action="/book-appointment" class="bg-white p-8 rounded-3xl shadow space-y-6">
+        <div>
+          <label class="block mb-2 font-medium">Full Name</label>
+          <input type="text" name="name" required class="w-full border rounded-xl px-4 py-3">
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">Phone Number</label>
+          <input type="tel" name="phone" required class="w-full border rounded-xl px-4 py-3">
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">Department</label>
+          <select name="department" required class="w-full border rounded-xl px-4 py-3">
+            <option value="">Select Department</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="General Medicine">General Medicine</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Orthopedics">Orthopedics</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">Preferred Date</label>
+          <input type="date" name="date" required class="w-full border rounded-xl px-4 py-3">
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">Message (Optional)</label>
+          <textarea name="message" rows="3" class="w-full border rounded-xl px-4 py-3"></textarea>
+        </div>
+        <button type="submit" 
+                class="w-full bg-blue-600 text-white py-4 rounded-2xl font-semibold hover:bg-blue-700">
+          Book Appointment
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-10 text-center">
+    <h2 class="text-2xl font-bold">Jewel Hospital</h2>
+    <p class="mt-2">Kolkata, West Bengal</p>
+    <p class="mt-6 text-sm">Made by Jewel Alam | Made in India and for India ❤️</p>
+  </footer>
+
+</body>
+</html>
